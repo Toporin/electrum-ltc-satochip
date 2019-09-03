@@ -4,7 +4,7 @@ FRESH_CLONE=contrib/build-wine/fresh_clone && \
     sudo rm -rf $FRESH_CLONE && \
     mkdir -p $FRESH_CLONE && \
     cd $FRESH_CLONE  && \
-    git clone https://github.com/Alcofribas4/electrum-ltc-satochip.git && \
+    git clone https://github.com/Toporin/electrum-ltc-satochip.git && \
     cd electrum-ltc-satochip
      
 #git checkout $REV
