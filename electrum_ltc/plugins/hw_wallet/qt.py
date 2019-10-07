@@ -178,7 +178,9 @@ class QtHandlerBase(QObject, Logger):
 
     def clear_dialog(self):
         if self.dialog:
-            self.dialog.accept()
+            try: self.dialog.accept()
+            except RuntimeError: 
+                pass #see https://github.com/Electron-Cash/Electron-Cash/issues/1437
             self.dialog = None
 
     def win_query_choice(self, msg, labels):
