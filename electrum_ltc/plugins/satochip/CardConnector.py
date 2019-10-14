@@ -319,10 +319,13 @@ class CardConnector:
                 (key, chaincode)= self.parser.parse_bip32_get_extendedkey(response)
                 return (key, chaincode)
     
-    def card_sign_message(self, keynbr, message, hmac=b''):
+    def card_sign_message(self, keynbr, message, hmac=b'', altcoin=None):
         if (type(message)==str):
             message = message.encode('utf8')
         
+        if (type(altcoin)==str):
+                altcoin = altcoin.encode('utf8')
+                
         # return signature as byte array
         # data is cut into chunks, each processed in a different APDU call
         chunk= 160 # max APDU data=255 => chunk<=255-(4+2)
@@ -334,10 +337,13 @@ class CardConnector:
         ins= JCconstants.INS_SIGN_MESSAGE
         p1= keynbr # 0xff=>BIP32 otherwise STD
         p2= JCconstants.OP_INIT
-        lc= 0x4
+        lc= 0x4 if not altcoin else (0x4+0x1+len(altcoin))
         apdu=[cla, ins, p1, p2, lc]
         for i in reversed(range(4)):
-            apdu+= [((buffer_left>>(8*i)) & 0xff)]
+            apdu+= [((buffer_left>>(8*i)) & 0xff)]        
+        if altcoin:
+            apdu+= [len(altcoin)]
+            apdu+=altcoin            
         
         # send apdu
         (response, sw1, sw2) = self.card_transmit(apdu)
