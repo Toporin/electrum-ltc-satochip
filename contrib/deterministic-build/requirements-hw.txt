@@ -84,9 +84,9 @@ requests==2.22.0 \
 safet==0.1.4 \
     --hash=sha256:522c257910f9472e9c77c487425ed286f6721c314653e232bc41c6cedece1bb1 \
     --hash=sha256:b152874acdc89ff0c8b2d680bfbf020b3e53527c2ad3404489dd61a548aa56a1
-setuptools==41.1.0 \
-    --hash=sha256:bce3560fae29e9efa45fdb6e9fceddb1cde0cccebb050ee134262283b3ccbc7b \
-    --hash=sha256:c519b84c299911fd94ef47e3de4fe678c254aefc5cdf8a9b12e4cdc8cc3744a8
+setuptools==65.5.1 \
+    --hash=sha256:d0b9a8433464d5800cbe05094acf5c6d52a91bfac9b52bcfc4d41382be5d5d31 \
+    --hash=sha256:e197a19aa8ec9722928f2206f8de752def0e4c9fc6953527360d1c36d94ddb2f
 shamir-mnemonic==0.1.0 \
     --hash=sha256:1cc08d276e05b13cd32bd3b0c5d1cb6c30254e0086e0f6857ec106d4cceff121 \
     --hash=sha256:5e7cc1354697e304b7868fc01085bcd4b30bb2020b77b6cc5ceeb0c032d513a7
